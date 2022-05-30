@@ -1,6 +1,7 @@
 import React from 'react'
 import './NavBar.css'
 import logo from './logo.webp'
+import CartWidget from '../CartWidget/CartWidget'
 
 function NavBar() {
     return (
@@ -31,9 +32,7 @@ function NavBar() {
                             <li className="nav-item m-1">
                                 <a className="nav-link py-0" href="#action4">Contacto</a>
                             </li>
-                            <li className="nav-item m-1">
-                                <a className="nav-link py-0" href="#action5"><i className="fas fa-shopping-cart"></i></a>
-                            </li>
+                            <CartWidget />
                         </ul>
                     </div>
                 </div>
