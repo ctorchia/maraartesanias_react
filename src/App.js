@@ -1,15 +1,16 @@
 import './App.css';
-import NavBar from './components/NavBar/NavBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import Cuerpo from './components/Cuerpo/Cuerpo';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+// import ItemCount from './components/ItemCount/ItemCount';
+import NavBar from './components/NavBar/NavBar';
 
 function App() {
   return (
     <>
+
       <NavBar />
-      {/* <Cuerpo /> */}
-      <ItemListContainer greeting='Bienvenidos a MaraArtesanias'/>
+      <ItemListContainer greeting='Bienvenidos a MaraArtesanias' />
+
     </>
   );
 }
