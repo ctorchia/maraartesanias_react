@@ -1,21 +1,24 @@
 let productos = [
     {
         id: '1',
-        nombre: 'Pintura Acrílica 50cc',
-        descripcion: 'Pintura acrílica EQ para Artesanías',
-        stock: '20',
+        title: 'Pintura Acrílica 50cc',
+        description: 'Pintura acrílica EQ para Artesanías',
+        price: '$100',
+        pictureUrl: 'https://ctorchia.github.io/maraartesanias/imagenes/acrilico_50.webp'
     },
     {
         id: '2',
-        nombre: 'Pintura a la Tiza 200cc',
-        descripcion: 'Pintura a la Tiza EQ para Artesanías',
-        stock: '15',
+        title: 'Pintura a la Tiza 200cc',
+        description: 'Pintura a la Tiza EQ para Artesanías',
+        price: '$200',
+        pictureUrl: 'https://ctorchia.github.io/maraartesanias/imagenes/tiza_200.webp'
     },
     {
         id: '3',
-        nombre: 'Betún de Judea',
-        descripcion: 'Betún de Judea para teñir madera',
-        stock: '10',
+        title: 'Betún de Judea',
+        description: 'Betún de Judea para teñir madera',
+        price: '$150',
+        pictureUrl: 'https://ctorchia.github.io/maraartesanias/imagenes/betun_1000.webp'
     },
 ];
 
@@ -23,6 +26,6 @@ export const getFetch = () =>{
     return new Promise( (resolve, reject) =>{
         setTimeout(() =>{
             resolve(productos)
-        },3000)
+        },2000)
     })
 }

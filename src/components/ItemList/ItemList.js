@@ -1,12 +1,12 @@
 import Item from "../Item/Item";
 
-export default function ItemList(productos){
+export default function ItemList(items){
 
     return(
 
-        productos.map(producto =>
+        items.map(item =>
         
-            Item(producto)
+            Item(item)
         )
     )
 }

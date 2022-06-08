@@ -5,27 +5,27 @@ import './ItemListContainer.css';
 
 const ItemListContainer = () => {
 
-    const [productos, setProductos] = useState([])
+    const [items, setItems] = useState([])
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         getFetch()
             .then((resp) => {
-                setProductos(resp)
+                setItems(resp)
             })
             .catch(err => console.log(err))
             .finally(() => setLoading(false))
     }, [])
 
-    console.log(productos)
+    console.log(items)
 
     return (
         <div id='contenedor'>
 
             {loading ?
-                <h1>Cargando...</h1>
+                <h2>Cargando...</h2>
                 :
-                ItemList(productos)}
+                ItemList(items)}
         </div>
     );
 }
