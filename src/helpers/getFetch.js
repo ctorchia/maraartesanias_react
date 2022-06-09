@@ -22,10 +22,15 @@ let productos = [
     },
 ];
 
-export const getFetch = () =>{
-    return new Promise( (resolve, reject) =>{
-        setTimeout(() =>{
-            resolve(productos)
-        },2000)
+export const getFetch = (id) => {
+    console.log(id)
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (id) {
+                resolve(productos.find(producto => producto.id === id))
+            } else {
+                resolve(productos)
+            }
+        }, 2000)
     })
 }
