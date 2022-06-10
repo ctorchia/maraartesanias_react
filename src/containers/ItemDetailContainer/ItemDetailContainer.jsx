@@ -1,17 +1,21 @@
 import { useEffect, useState } from "react"
 import ItemDetail from "../../components/ItemDetail/ItemDetail"
 import { getFetch } from "../../helpers/getFetch"
+import { useParams } from "react-router-dom"
 
 const ItemDetailContainer = () => {
     const [item, setItem] = useState({})
     const [loading, setLoading] = useState(true)
 
+    const {id} = useParams()
+
+
     useEffect(() => {
-        getFetch("2")
+        getFetch(id)
             .then((resp) => setItem(resp))
             .catch(err => console.log(err))
             .finally(() => setLoading(false))
-    }, [])
+    }, [id])
 
     return (
         

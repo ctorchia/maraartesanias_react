@@ -2,6 +2,7 @@ import React from 'react'
 import './NavBar.css'
 import logo from './logo.webp'
 import CartWidget from '../CartWidget/CartWidget'
+import { NavLink } from 'react-router-dom'
 
 function NavBar() {
     return (
@@ -18,10 +19,14 @@ function NavBar() {
                     <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item m-1">
-                                <a className="nav-link active py-0 text-black" aria-current="page" href="#home">Inicio</a>
+                                <NavLink className="nav-link py-0" to="/">
+                                    Inicio
+                                </NavLink>
                             </li>
                             <li className="nav-item m-1">
-                                <a className="nav-link py-0" href="#action1">Productos</a>
+                                <NavLink className="nav-link py-0" to="/item">
+                                    Productos
+                                </NavLink>
                             </li>
                             <li className="nav-item m-1">
                                 <a className="nav-link py-0" href="#action2">Trabajos</a>
