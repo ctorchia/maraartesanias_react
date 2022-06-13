@@ -24,19 +24,21 @@ function NavBar() {
                                 </NavLink>
                             </li>
                             <li className="nav-item m-1">
-                                <NavLink className="nav-link py-0" to="/item">
+                                <NavLink className="nav-link py-0" to="/category/Producto">
                                     Productos
                                 </NavLink>
                             </li>
                             <li className="nav-item m-1">
-                                <a className="nav-link py-0" href="#action2">Trabajos</a>
+                                <NavLink className="nav-link py-0" to="/category/Trabajo">
+                                    Trabajos
+                                </NavLink>
                             </li>
-                            <li className="nav-item m-1">
+                            {/* <li className="nav-item m-1">
                                 <a className="nav-link py-0" href="#action3">Nosotros</a>
                             </li>
                             <li className="nav-item m-1">
                                 <a className="nav-link py-0" href="#action4">Contacto</a>
-                            </li>
+                            </li> */}
                             <CartWidget />
                         </ul>
                     </div>

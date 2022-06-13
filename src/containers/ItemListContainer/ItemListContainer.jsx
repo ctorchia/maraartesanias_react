@@ -9,18 +9,23 @@ const ItemListContainer = () => {
     const [items, setItems] = useState([])
     const [loading, setLoading] = useState(true)
 
-    const {categoryId} = useParams()
+    const { categoryId } = useParams()
 
     console.log(categoryId)
 
     useEffect(() => {
-        getFetch()
-            .then((resp) => {
-                setItems(resp)
-            })
-            .catch(err => console.log(err))
-            .finally(() => setLoading(false))
-    }, [])
+        if (categoryId) {
+            getFetch()
+                .then((resp) => setItems(resp.filter(item => item.category === categoryId)))
+                .catch(err => console.log(err))
+                .finally(() => setLoading(false))
+        } else {
+            getFetch()
+                .then((resp) => setItems(resp))
+                .catch(err => console.log(err))
+                .finally(() => setLoading(false))
+        }
+    }, [categoryId])
 
     console.log(items)
 
