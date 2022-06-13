@@ -28,9 +28,10 @@ const ItemListContainer = () => {
     }, [categoryId])
 
     console.log(items)
+    console.log(loading)
 
     return (
-        <div id='contenedor'>
+        <div className='contenedor row row-cols-1 row-cols-sm-3 row-cols-lg-4 g-4'>
 
             {loading ?
                 <h2>Cargando...</h2>

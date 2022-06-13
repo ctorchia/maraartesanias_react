@@ -10,7 +10,9 @@ function NavBar() {
             <nav className="navbar navbar-expand-md navbar-light fixed-top">
                 <div className="container-fluid">
                     <div>
-                        <a href="#home"><img src={logo} alt="Logo MaraArtesanias" width="140" height="110" /></a>
+                        <NavLink className="nav-link py-0" to="/">
+                            <img src={logo} alt="Logo MaraArtesanias" width="140" height="110" />
+                        </NavLink>
                     </div>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,12 +26,12 @@ function NavBar() {
                                 </NavLink>
                             </li>
                             <li className="nav-item m-1">
-                                <NavLink className="nav-link py-0" to="/category/Producto">
+                                <NavLink className="nav-link py-0" to="/category/producto">
                                     Productos
                                 </NavLink>
                             </li>
                             <li className="nav-item m-1">
-                                <NavLink className="nav-link py-0" to="/category/Trabajo">
+                                <NavLink className="nav-link py-0" to="/category/trabajo">
                                     Trabajos
                                 </NavLink>
                             </li>

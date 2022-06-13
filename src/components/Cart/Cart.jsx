@@ -2,15 +2,8 @@
 
 const Cart = () => {
     return (
-        <div>
-            <div>Cart</div>
-            <div>Cart</div>
-            <div>Cart</div>
-            <div>Cart</div>
-            <div>Cart</div>
-            <div>Cart</div>
-            <div>Cart</div>
-            <div>Cart</div>
+        <div className="contenedor">
+            <h1>Proximamente: Carrito</h1>
         </div>
     )
 }

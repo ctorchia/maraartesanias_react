@@ -11,10 +11,9 @@ export default function Item(item) {
                 <p className="card-text">Precio: {item.price}</p>
                 
                 <Link to={`/item/${item.id}`}>
-                     <button className="btn btn-primary"> Detalle del Item </button>
+                     <button className="btn btn-primary"> Ver Detalle </button>
                 </Link>
                 
-                {/* <a href="#action1" className="btn btn-primary">Detalle del Item</a> */}
             </div>
         </div>
     )
