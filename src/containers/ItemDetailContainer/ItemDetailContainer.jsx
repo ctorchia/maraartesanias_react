@@ -4,11 +4,11 @@ import { getFetch } from "../../helpers/getFetch"
 import { useParams } from "react-router-dom"
 
 const ItemDetailContainer = () => {
+
     const [item, setItem] = useState({})
     const [loading, setLoading] = useState(true)
 
     const { id } = useParams()
-
 
     useEffect(() => {
         getFetch(id)
