@@ -20,7 +20,7 @@ function ItemCount({ stock, initial, onAdd }) {
     }
 
     const mostrarContador = () => {
-        console.log(contador)
+        onAdd(contador)
     }
 
     return (
