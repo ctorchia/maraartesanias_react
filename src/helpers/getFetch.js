@@ -50,7 +50,7 @@ let productos = [
 ];
 
 export const getFetch = (id) => {
-    console.log(id)
+    // console.log(id)
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             if (id) {

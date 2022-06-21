@@ -11,7 +11,7 @@ const ItemListContainer = () => {
 
     const { categoryId } = useParams()
 
-    console.log(categoryId)
+    // console.log(categoryId)
 
     useEffect(() => {
         if (categoryId) {
@@ -27,8 +27,8 @@ const ItemListContainer = () => {
         }
     }, [categoryId])
 
-    console.log(items)
-    console.log(loading)
+    // console.log(items)
+    // console.log(loading)
 
     return (
         <div className='contenedor row row-cols-1 row-cols-sm-3 row-cols-lg-4 g-4'>
