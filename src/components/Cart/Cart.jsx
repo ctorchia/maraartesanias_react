@@ -2,24 +2,24 @@ import { useCartContext } from "../../contexts/cartContext"
 
 
 const Cart = () => {
-    const { cart, emptyCart } = useCartContext()
+    const { cart, clear } = useCartContext()
     return (
-        <div className="contenedor">
-            <h1>Proximamente: Carrito</h1>
-            
-            <ul>
-                {
-                    cart.map(item => <li key={item.id}>
-                    <div className="w-50">
-                    <img src={item.pictureUrl} className="w-25" alt="..." />
-                    </div>
-                    
-                    Nombre: {item.title} Precio: {item.price} Cantidad:{item.cantidad}
-                    </li>)
-                }
-            </ul>
+        <div className="contenedor d-flex row ">            
             <div>
-                <button onClick={emptyCart}>Vaciar Carrito</button>
+                <ul className="list-unstyled">
+                    {
+                        cart.map(item => <li key={item.id}>
+                        <div className="w-50">
+                        <img src={item.pictureUrl} className="w-25" alt="..." />
+                        </div>
+                
+                        Nombre: {item.title} Precio: {item.price} Cantidad:{item.cantidad}
+                        </li>)
+                    }
+                </ul>
+            </div>
+            <div>
+                <button onClick={clear}>Vaciar Carrito</button>
             </div>
         </div>
     )

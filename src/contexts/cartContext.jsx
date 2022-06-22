@@ -7,15 +7,23 @@ export const CartContextProvider = ({ children }) => {
     // Estados y Funciones
     const [cart, setCart] = useState([]);
 
-    const addToCart = (item) => {
-        // console.log(item)
-        setCart([
-            ...cart,
-            item
-        ])
+    const isInCart = (item) => {
+        return cart.find(producto => producto.id === item.id)
     }
 
-    const emptyCart = () => {
+    const addItem = (item) => {
+        // console.log(item)
+        if (isInCart(item)) {
+            (cart.find(element => element.id === item.id)).cantidad += item.cantidad
+        } else {
+            setCart([
+                ...cart,
+                item
+            ])
+        }
+    }
+
+    const clear = () => {
         setCart([]);
     }
 
@@ -23,8 +31,8 @@ export const CartContextProvider = ({ children }) => {
         <CartContext.Provider
             value={{
                 cart,
-                addToCart,
-                emptyCart
+                addItem,
+                clear
             }}
         >
             {children}
@@ -32,5 +40,4 @@ export const CartContextProvider = ({ children }) => {
     );
 }
 
-// {id:1,name:'Fede'},{id:2,name:'Juan'}
-
+// removeItem(ItemId)

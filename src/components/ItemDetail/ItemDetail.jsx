@@ -5,14 +5,14 @@ import ItemCount from "../ItemCount/ItemCount"
 
 const ItemDetail = ({ item }) => {
 
-    const { cart, addToCart } = useCartContext()
+    const { cart, addItem } = useCartContext()
 
     const [cantidad, setCantidad] = useState()    
 
     const onAdd = (cant) => {
         // console.log(cant)
         setCantidad(cant)
-        addToCart({...item, cantidad:cant})
+        addItem({...item, cantidad:cant})
     }
 
     console.log(cart)
