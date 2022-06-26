@@ -7,12 +7,12 @@ const ItemDetail = ({ item }) => {
 
     const { cart, addItem } = useCartContext()
 
-    const [cantidad, setCantidad] = useState()    
+    const [cantidad, setCantidad] = useState()
 
     const onAdd = (cant) => {
         // console.log(cant)
         setCantidad(cant)
-        addItem({...item, cantidad:cant})
+        addItem({ ...item, cantidad: cant })
     }
 
     console.log(cart)
@@ -26,14 +26,19 @@ const ItemDetail = ({ item }) => {
             <div className="col-6">
                 <h2>{item.title}</h2>
                 <h4>{item.description}</h4>
-                <h4>$ {item.price}</h4> 
+                <h4>$ {item.price}</h4>
                 {
                     cantidad ?
+                        <>
+                        <Link to="/">
+                            <button className="btn btn-outline-primary">Seguir Comprando</button>
+                        </Link>
                         <Link to="/cart">
                             <button className="btn btn-outline-primary">Ir al Carrito</button>
                         </Link>
-                    :
-                        <ItemCount stock={10} initial={1} onAdd={onAdd}/>
+                        </>
+                        :
+                        <ItemCount stock={10} initial={1} onAdd={onAdd} />
                 }
             </div>
         </div>
