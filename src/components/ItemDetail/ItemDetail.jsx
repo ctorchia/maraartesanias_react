@@ -26,7 +26,7 @@ const ItemDetail = ({ item }) => {
             <div className="col-6">
                 <h2>{item.title}</h2>
                 <h4>{item.description}</h4>
-                <h4>{item.price}</h4> 
+                <h4>$ {item.price}</h4> 
                 {
                     cantidad ?
                         <Link to="/cart">
