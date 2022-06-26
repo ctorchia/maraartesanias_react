@@ -15,6 +15,7 @@ export const CartContextProvider = ({ children }) => {
         // console.log(item)
         if (isInCart(item)) {
             (cart.find(element => element.id === item.id)).cantidad += item.cantidad
+            setCart([...cart])
         } else {
             setCart([
                 ...cart,
@@ -42,6 +43,8 @@ export const CartContextProvider = ({ children }) => {
         setCart(cart.filter((element) => element.id !== id))
     }
 
+    const cartCountItems = () => cart.reduce((acum,item)=> acum + item.cantidad,0)
+    
     return (
         <CartContext.Provider
             value={{
@@ -49,7 +52,8 @@ export const CartContextProvider = ({ children }) => {
                 addItem,
                 clear,
                 totalPrice,
-                removeItem
+                removeItem,
+                cartCountItems
             }}
         >
             {children}
