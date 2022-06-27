@@ -1,6 +1,7 @@
 import { useCartContext } from "../../contexts/cartContext"
 import { Button } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
+import './Cart.css'
 
 const Cart = () => {
     const { cart, clear, totalPrice, removeItem } = useCartContext()
@@ -16,33 +17,64 @@ const Cart = () => {
                 </NavLink>
             </div>
             :
-            <div className="contenedor d-flex row ">
-                <div>
-                    <h2 className='text-center'>Carrito de Compras</h2>
+            <div className="contenedor shopping-cart dark">
+                <div className="container">
+                    {/* <div className="block-heading">
+		                <h2>Carrito de Compras</h2>
+		            </div> */}
+                    <div className="content">
+                        <div className="row">
+                            <div className="col-md-12 col-lg-8">
+                                <div className="items">
+                                    {
+                                        cart.map(item => <div className="product border" key={item.id}>
+                                            <div className="row">
+                                                <div className="col-md-3">
+                                                    <img src={item.pictureUrl} className="img-fluid mx-auto d-block image rounded" alt="..." />
+                                                </div>
 
-                    <ul className="list-unstyled">
-                        {
-                            cart.map(item => <li key={item.id}>
-                                <div className="w-50">
-                                    <img src={item.pictureUrl} className="w-25" alt="..." />
-                                </div>
+                                                <div className="col-md-8">
+                                                    <div className="info">
+                                                        <div className="row">
+                                                            <div className="col-md-5 product-name">
+                                                                <div className="product-name">
+                                                                    {item.title}
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-md-3 quantity">
+                                                                <label>Cantidad</label>
+                                                                <div className="form-control quantity-input">{item.cantidad} </div>
+                                                            </div>
+                                                            <div className="col-md-3 price">
+                                                                <span>${item.price}</span>
+                                                            </div>
+                                                            <div className="col-md-1 price">
+                                                                <Button onClick={() => { removeItem(item.id) }} variant="danger">X</Button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
 
-                                Nombre: {item.title} Precio: $ {item.price} Cantidad:{item.cantidad}
-                                <div>
-                                    <Button onClick={()=>{removeItem(item.id)}} variant="danger">X</Button>
+                                            </div>
+                                        </div>)
+                                    }
                                 </div>
-                            </li>)
-                        }
-                    </ul>
-                </div>
-                <div>
-                    <p>Precio Total: $ {totalPrice()}</p>
-                </div>
-                <div>
-                    <Button onClick={clear} variant="primary">Vaciar Carrito</Button>
+                            </div>
+                            <div className="col-md-12 col-lg-4">
+                                <div className="summary">
+                                    <h3>Resumen</h3>
+                                    <div className="summary-item"><span className="text">Precio Total</span><span className="price">$ {totalPrice()}</span></div>
+                                    <Button onClick={clear} variant="primary">Vaciar Carrito</Button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+
     )
 }
 
 export default Cart
+
+
