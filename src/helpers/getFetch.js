@@ -1,10 +1,11 @@
-let productos = [
+let products = [
     {
         id: '1',
         title: 'Pintura Acrílica 50cc',
         description: 'Pintura acrílica EQ para Artesanías',
         category: 'producto',
         price: '100',
+        stock: '15',
         pictureUrl: 'https://ctorchia.github.io/maraartesanias/imagenes/acrilico_50.webp'
     },
     {
@@ -13,6 +14,7 @@ let productos = [
         description: 'Pintura a la Tiza EQ para Artesanías',
         category: 'producto',
         price: '200',
+        stock: '15',
         pictureUrl: 'https://ctorchia.github.io/maraartesanias/imagenes/tiza_200.webp'
     },
     {
@@ -21,6 +23,7 @@ let productos = [
         description: 'Betún de Judea para teñir madera',
         category: 'producto',
         price: '150',
+        stock: '15',
         pictureUrl: 'https://ctorchia.github.io/maraartesanias/imagenes/betun_1000.webp'
     },
     {
@@ -29,6 +32,7 @@ let productos = [
         description: 'Banco Multiuso Gris Jaspeado',
         category: 'trabajo',
         price: '1500',
+        stock: '15',
         pictureUrl: 'https://ctorchia.github.io/maraartesanias/imagenes/banquito_1.webp'
     },
     {
@@ -37,6 +41,7 @@ let productos = [
         description: 'Banco Multiuso Celeste con Hojas',
         category: 'trabajo',
         price: '1500',
+        stock: '15',
         pictureUrl: 'https://ctorchia.github.io/maraartesanias/imagenes/banquito_2.webp'
     },
     {
@@ -45,6 +50,7 @@ let productos = [
         description: 'Banco Multiuso en Betún',
         category: 'trabajo',
         price: '1500',
+        stock: '15',
         pictureUrl: 'https://ctorchia.github.io/maraartesanias/imagenes/banquito_3.webp'
     }
 ];
@@ -54,9 +60,9 @@ export const getFetch = (id) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             if (id) {
-                resolve(productos.find(producto => producto.id === id))
+                resolve(products.find(producto => producto.id === id))
             } else {
-                resolve(productos)
+                resolve(products)
             }
         }, 1000)
     })
