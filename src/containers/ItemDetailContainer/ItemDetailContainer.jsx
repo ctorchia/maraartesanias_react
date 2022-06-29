@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react"
 import ItemDetail from "../../components/ItemDetail/ItemDetail"
-import { getFetch } from "../../helpers/getFetch"
 import { useParams } from "react-router-dom"
+
+import { doc, getDoc, getFirestore } from 'firebase/firestore'
+
 
 const ItemDetailContainer = () => {
 
@@ -11,8 +13,11 @@ const ItemDetailContainer = () => {
     const { id } = useParams()
 
     useEffect(() => {
-        getFetch(id)
-            .then((resp) => setItem(resp))
+
+        const db = getFirestore()
+        const queryItem = doc(db, 'products', id)
+        getDoc(queryItem) // Promesa
+            .then(resp => setItem({ id: resp.id, ...resp.data() }))
             .catch(err => console.log(err))
             .finally(() => setLoading(false))
     }, [id])
