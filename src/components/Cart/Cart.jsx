@@ -2,9 +2,45 @@ import { useCartContext } from "../../contexts/cartContext"
 import { Button } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
 import './Cart.css'
+import { addDoc, collection, doc, getFirestore, updateDoc } from "firebase/firestore"
 
 const Cart = () => {
     const { cart, clear, totalPrice, removeItem } = useCartContext()
+
+    // ------------------------------------------------------------------------------
+    function generateOrder(e){
+        e.preventDefault()
+        let order = {}
+
+        order.buyer = {name: 'Cristian', email: 'cmt@gmail.com', phone: '44445555'}
+        order.totalPrice = totalPrice()
+
+        order.items = cart.map(item => {
+            const id = item.id
+            const title = item.title
+            const price = item.price * item.cantidad
+
+            return {id, title, price}
+        })
+
+        // INSERT
+        const db = getFirestore()
+        // const orderCollection = collection(db, 'orders')
+        // addDoc(orderCollection, order)
+        //     .then(resp => console.log(resp))
+
+        // UPDATE
+        // const updateCollection = doc(db, 'products', '0DKhEs0zuzWqi6gBViNo' )
+        // updateDoc(updateCollection,{
+        //     stock: 100
+        // })
+        // .then(()=> console.log('actualizado')) 
+
+        // UPDATE STOCK
+        
+    }
+    // ------------------------------------------------------------------------------
+
     return (
 
         cart.length === 0 ?
@@ -64,7 +100,8 @@ const Cart = () => {
                                 <div className="summary">
                                     <h3>Resumen</h3>
                                     <div className="summary-item"><span className="text">Precio Total:</span><span className="price">$ {totalPrice()}</span></div>
-                                    <Button onClick={clear} variant="primary">Vaciar Carrito</Button>
+                                    <Button onClick={clear} variant="danger">Vaciar Carrito</Button>
+                                    <Button onClick={generateOrder} variant="primary">Terminar Compra</Button>
                                 </div>
                             </div>
                         </div>
