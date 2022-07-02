@@ -12,18 +12,16 @@ const ItemListContainer = () => {
     const { categoryId } = useParams()
 
     useEffect(() => {
+        const db = getFirestore()
+        const queryCollection = collection(db, 'products')
 
         if (categoryId) {
-            const db = getFirestore()
-            const queryCollection = collection(db, 'products')
             const queryColletionFilter = query(queryCollection, where('category', '==', categoryId))
             getDocs(queryColletionFilter) //Promise
                 .then(resp => setItems(resp.docs.map(item => ({ id: item.id, ...item.data() }))))
                 .catch(err => console.log(err))
                 .finally(() => setLoading(false))
         } else {
-            const db = getFirestore()
-            const queryCollection = collection(db, 'products')
             getDocs(queryCollection) // Promise
                 .then(resp => setItems(resp.docs.map(item => ({ id: item.id, ...item.data() }))))
                 .catch(err => console.log(err))

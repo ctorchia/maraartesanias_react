@@ -35,12 +35,6 @@ function NavBar() {
                                     Trabajos
                                 </NavLink>
                             </li>
-                            {/* <li className="nav-item m-1">
-                                <a className="nav-link py-0" href="#action3">Nosotros</a>
-                            </li>
-                            <li className="nav-item m-1">
-                                <a className="nav-link py-0" href="#action4">Contacto</a>
-                            </li> */}
                             <CartWidget />
                         </ul>
                     </div>
