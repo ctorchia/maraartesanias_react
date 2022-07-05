@@ -24,7 +24,7 @@ const ItemListContainer = () => {
     }, [categoryId])
 
     return (
-        <div className='contenedor row row-cols-1 row-cols-sm-3 row-cols-lg-4 g-4'>
+        <div className='space-top row row-cols-1 row-cols-sm-3 row-cols-lg-4 g-4'>
 
             {loading ?
                 <h2>Cargando...</h2>

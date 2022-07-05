@@ -5,16 +5,14 @@ import ItemCount from "../ItemCount/ItemCount"
 
 const ItemDetail = ({ item }) => {
 
-    const { cart, addItem } = useCartContext()
+    const {addItem } = useCartContext()
 
-    const [cantidad, setCantidad] = useState()
+    const [quantity, setQuantity] = useState()
 
-    const onAdd = (cant) => {
-        setCantidad(cant)
-        addItem({ ...item, cantidad: cant })
+    const onAdd = (quantity) => {
+        setQuantity(quantity)
+        addItem({ ...item, quantity: quantity })
     }
-
-    console.log(cart)
 
     return (
         <div className="row">
@@ -26,7 +24,7 @@ const ItemDetail = ({ item }) => {
                 <h4>{item.description}</h4>
                 <h4>$ {item.price}</h4>
                 {
-                    cantidad ?
+                    quantity ?
                         <>
                         <Link to="/">
                             <button className="btn btn-outline-primary">Seguir Comprando</button>

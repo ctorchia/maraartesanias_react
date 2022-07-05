@@ -22,7 +22,7 @@ const Cart = () => {
         order.items = cart.map(item => {
             const id = item.id
             const title = item.title
-            const price = item.price * item.cantidad
+            const price = item.price * item.quantity
 
             return { id, title, price }
         })
@@ -46,7 +46,7 @@ const Cart = () => {
 
         await getDocs(queryUpdateStock)
             .then(resp => resp.docs.forEach(res => batch.update(res.ref, {
-                stock: res.data().stock - cart.find(item => item.id === res.id).cantidad
+                stock: res.data().stock - cart.find(item => item.id === res.id).quantity
             })))
             .finally(()=> clear())
 
@@ -57,7 +57,7 @@ const Cart = () => {
     return (
 
         orderNumber ?
-            <div className="contenedor d-flex row text-center">
+            <div className="space-top d-flex row text-center">
                 <h2>Número de Orden de Compra:</h2>
                 <h3>{orderNumber}</h3>
                 <NavLink to="/">
@@ -68,7 +68,7 @@ const Cart = () => {
 
         cart.length === 0 ?
 
-        <div className="contenedor d-flex row text-center">
+        <div className="space-top d-flex row text-center">
             <h2>Carrito de Compras</h2>
             <h3>(El carrito esta vacio)</h3>
             <NavLink to="/">
@@ -76,7 +76,7 @@ const Cart = () => {
             </NavLink>
         </div>
         :
-        <div className="contenedor shopping-cart dark">
+        <div className="space-top shopping-cart dark">
             <div className="container">
                 <div className="content">
                     <div className="row">
@@ -99,7 +99,7 @@ const Cart = () => {
                                                         </div>
                                                         <div className="col-md-3 quantity">
                                                             <label>Cantidad</label>
-                                                            <div className="form-control quantity-input">{item.cantidad} </div>
+                                                            <div className="form-control quantity-input">{item.quantity} </div>
                                                         </div>
                                                         <div className="col-md-3 price">
                                                             <span>${item.price}</span>
