@@ -6,7 +6,7 @@ import { useState } from 'react';
 function ItemCount({ stock, initial, onAdd }) {
 
     const [counter, setCounter] = useState(parseInt(initial));
-   
+
     const increase = () => {
         if (counter !== parseInt(stock)) {
             setCounter(counter + 1);

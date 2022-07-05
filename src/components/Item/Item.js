@@ -8,11 +8,11 @@ export default function Item(item) {
                 <h5 className="card-title">{item.title}</h5>
                 <p className="card-text">{item.description}</p>
                 <p className="card-text">Precio: $ {item.price}</p>
-                
+
                 <Link to={`/item/${item.id}`}>
-                     <button className="btn btn-primary"> Ver Detalle </button>
+                    <button className="btn btn-primary"> Ver Detalle </button>
                 </Link>
-                
+
             </div>
         </div>
     )

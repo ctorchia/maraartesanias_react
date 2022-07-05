@@ -5,7 +5,7 @@ import ItemCount from "../ItemCount/ItemCount"
 
 const ItemDetail = ({ item }) => {
 
-    const {addItem } = useCartContext()
+    const { addItem } = useCartContext()
 
     const [quantity, setQuantity] = useState()
 
@@ -26,12 +26,12 @@ const ItemDetail = ({ item }) => {
                 {
                     quantity ?
                         <>
-                        <Link to="/">
-                            <button className="btn btn-outline-primary">Seguir Comprando</button>
-                        </Link>
-                        <Link to="/cart">
-                            <button className="btn btn-outline-primary">Ir al Carrito</button>
-                        </Link>
+                            <Link to="/">
+                                <button className="btn btn-outline-primary">Seguir Comprando</button>
+                            </Link>
+                            <Link to="/cart">
+                                <button className="btn btn-outline-primary">Ir al Carrito</button>
+                            </Link>
                         </>
                         :
                         <ItemCount stock={10} initial={1} onAdd={onAdd} />
