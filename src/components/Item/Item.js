@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
 export default function Item(item) {
-    // console.log(item)
     return (
         <div className="card m-2" key={item.id}>
             <img src={item.pictureUrl} className="card-img-top" alt="..." />

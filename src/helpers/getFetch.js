@@ -56,7 +56,6 @@ let products = [
 ];
 
 export const getFetch = (id) => {
-    // console.log(id)
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             if (id) {

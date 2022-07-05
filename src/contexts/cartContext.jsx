@@ -4,7 +4,6 @@ export const CartContext = createContext([]);
 export const useCartContext = () => useContext(CartContext)
 
 export const CartContextProvider = ({ children }) => {
-    // Estados y Funciones
     const [cart, setCart] = useState([]);
 
     const isInCart = (item) => {
@@ -12,7 +11,6 @@ export const CartContextProvider = ({ children }) => {
     }
 
     const addItem = (item) => {
-        // console.log(item)
         if (isInCart(item)) {
             (cart.find(element => element.id === item.id)).cantidad += item.cantidad
             setCart([...cart])
@@ -32,7 +30,6 @@ export const CartContextProvider = ({ children }) => {
         let totalPrice = 0;
         
         cart.forEach((product) => {
-            // console.log(product.price)
             totalPrice += parseInt(product.price) * parseInt(product.cantidad)
         })
         console.log(totalPrice)

@@ -16,7 +16,7 @@ const ItemDetailContainer = () => {
 
         const db = getFirestore()
         const queryItem = doc(db, 'products', id)
-        getDoc(queryItem) // Promesa
+        getDoc(queryItem)
             .then(resp => setItem({ id: resp.id, ...resp.data() }))
             .catch(err => console.log(err))
             .finally(() => setLoading(false))

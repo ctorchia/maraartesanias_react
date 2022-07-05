@@ -32,10 +32,9 @@ const Cart = () => {
         const orderCollection = collection(db, 'orders')
         await addDoc(orderCollection, order)
             .then(resp => setOrderNumber(resp.id))
-        // .then(resp => console.log(resp.id))
+
 
         // UPDATE STOCK
-
         const queryCollectionStock = collection(db, 'products')
 
         const queryUpdateStock = await query(
@@ -79,9 +78,6 @@ const Cart = () => {
         :
         <div className="contenedor shopping-cart dark">
             <div className="container">
-                {/* <div className="block-heading">
-		                <h2>Carrito de Compras</h2>
-		            </div> */}
                 <div className="content">
                     <div className="row">
                         <div className="col-md-12 col-lg-8">

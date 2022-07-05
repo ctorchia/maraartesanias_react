@@ -10,14 +10,12 @@ const ItemDetail = ({ item }) => {
     const [cantidad, setCantidad] = useState()
 
     const onAdd = (cant) => {
-        // console.log(cant)
         setCantidad(cant)
         addItem({ ...item, cantidad: cant })
     }
 
     console.log(cart)
 
-    // console.log(item)
     return (
         <div className="row">
             <div className="col-6">
