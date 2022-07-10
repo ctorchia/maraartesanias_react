@@ -75,8 +75,7 @@ const Cart = () => {
             cart.length === 0 ?
 
                 <div className="space-top d-flex row text-center">
-                    <h2>Carrito de Compras</h2>
-                    <h3>(El carrito esta vacio)</h3>
+                    <h3>"El carrito esta vacio"</h3>
                     <NavLink to="/">
                         <Button variant="primary">Ir al Inicio</Button>
                     </NavLink>
