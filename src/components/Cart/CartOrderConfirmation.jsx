@@ -1,7 +1,7 @@
 import { Button } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
 
-const OrderConfirmation = ({orderNumber}) => {
+const CartOrderConfirmation = ({orderNumber}) => {
     return (
         <div className="space-top d-flex row text-center">
             <h2>Número de Orden de Compra:</h2>
@@ -13,4 +13,4 @@ const OrderConfirmation = ({orderNumber}) => {
     )
 }
 
-export default OrderConfirmation
+export default CartOrderConfirmation

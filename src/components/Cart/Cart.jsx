@@ -4,7 +4,7 @@ import { addDoc, collection, documentId, getDocs, getFirestore, query, where, wr
 import { useState } from "react"
 import CartForm from "./CartForm"
 import CartEmpty from "./CartEmpty"
-import OrderConfirmation from "./OrderConfirmation"
+import CartOrderConfirmation from "./CartOrderConfirmation"
 
 const Cart = () => {
     const { cart, clear, totalPrice } = useCartContext()
@@ -63,7 +63,7 @@ const Cart = () => {
     return (
 
         orderNumber ?
-            <OrderConfirmation orderNumber={orderNumber}/>
+            <CartOrderConfirmation orderNumber={orderNumber}/>
             :
             cart.length === 0 ?
                 <CartEmpty />
