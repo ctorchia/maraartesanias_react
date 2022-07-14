@@ -2,13 +2,14 @@ import { useCartContext } from "../../contexts/cartContext"
 import './Cart.css'
 import { addDoc, collection, documentId, getDocs, getFirestore, query, where, writeBatch } from "firebase/firestore"
 import { useState } from "react"
-import CartForm from "./CartForm"
-import CartEmpty from "./CartEmpty"
-import CartOrderConfirmation from "./CartOrderConfirmation"
+import CartForm from "../CartForm/CartForm"
+import CartEmpty from "../CartEmpty/CartEmpty"
+import CartOrderConfirmation from "../CartOrderConfirmation/CartOrderConfirmation"
+import CartItemsList from "../CartItemsList/CartItemsList.jsx"
+import CartSummary from "../CartSummary/CartSummary"
 
 const Cart = () => {
     const { cart, clear, totalPrice } = useCartContext()
-
     const [orderNumber, setOrderNumber] = useState()
 
     // ------------------------------------------------------------------------------
@@ -63,12 +64,31 @@ const Cart = () => {
     return (
 
         orderNumber ?
-            <CartOrderConfirmation orderNumber={orderNumber}/>
+            <CartOrderConfirmation orderNumber={orderNumber} />
             :
             cart.length === 0 ?
                 <CartEmpty />
                 :
-                <CartForm generateOrder={generateOrder} />
+                <div className="space-top shopping-cart dark">
+                    <div className="container">
+                        <div className="content">
+                            <div className="row">
+
+                                <div className="col-md-12 col-lg-8">
+                                    <CartItemsList />
+                                </div>
+
+                                <div className="col-md-12 col-lg-4">
+                                    <CartSummary />
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <CartForm generateOrder={generateOrder} />
+
+                    </div>
+                </div>
     )
 }
 
