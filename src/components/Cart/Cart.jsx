@@ -1,10 +1,10 @@
 import { useCartContext } from "../../contexts/cartContext"
-import { Button } from 'react-bootstrap'
-import { NavLink } from 'react-router-dom'
 import './Cart.css'
 import { addDoc, collection, documentId, getDocs, getFirestore, query, where, writeBatch } from "firebase/firestore"
 import { useState } from "react"
 import CartForm from "./CartForm"
+import CartEmpty from "./CartEmpty"
+import OrderConfirmation from "./OrderConfirmation"
 
 const Cart = () => {
     const { cart, clear, totalPrice } = useCartContext()
@@ -63,23 +63,10 @@ const Cart = () => {
     return (
 
         orderNumber ?
-            <div className="space-top d-flex row text-center">
-                <h2>Número de Orden de Compra:</h2>
-                <h3>{orderNumber}</h3>
-                <NavLink to="/">
-                    <Button variant="primary">Ir al Inicio</Button>
-                </NavLink>
-            </div>
+            <OrderConfirmation orderNumber={orderNumber}/>
             :
-
             cart.length === 0 ?
-
-                <div className="space-top d-flex row text-center">
-                    <h3>"El carrito esta vacio"</h3>
-                    <NavLink to="/">
-                        <Button variant="primary">Ir al Inicio</Button>
-                    </NavLink>
-                </div>
+                <CartEmpty />
                 :
                 <CartForm generateOrder={generateOrder} />
     )
