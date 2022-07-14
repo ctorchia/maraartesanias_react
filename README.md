@@ -7,11 +7,16 @@ Este proyecto se basa en una tienda virtual que mostrará los productos y trabaj
 - Barnices y Lacas
 - Trabajos en madera
 
-## Librerías Extras Utilizadas
+## Librerías Extras
 
-- React-Router-Dom
-- React-Bootstrap
+- React: v18.1.0 
+- React-Router-Dom: v6.3.0
+- React-Bootstrap: v2.4.0
+- Firebase : v9.8.4
+- Bootstrap : v5.1.3
 
+## Demo:
+`https://maraartesanias-react.netlify.app/`
 
 ## Ejecución del Proyecto:
 
