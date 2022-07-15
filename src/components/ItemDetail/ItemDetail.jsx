@@ -1,6 +1,6 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
 import { useCartContext } from "../../contexts/cartContext"
+import CartItemDetailButtons from "../CartItemDetailButtons/CartItemDetailButtons"
 import ItemCount from "../ItemCount/ItemCount"
 
 const ItemDetail = ({ item }) => {
@@ -15,29 +15,34 @@ const ItemDetail = ({ item }) => {
     }
 
     return (
-        <div className="row">
-            <div className="col-6">
-                <img src={item.pictureUrl} className="img-fluid" alt="..." />
-            </div>
-            <div className="col-6">
-                <h2>{item.title}</h2>
-                <h4>{item.description}</h4>
-                <h4>$ {item.price}</h4>
-                {
-                    quantity ?
-                        <>
-                            <Link to="/">
-                                <button className="btn btn-outline-primary">Seguir Comprando</button>
-                            </Link>
-                            <Link to="/cart">
-                                <button className="btn btn-outline-primary">Ir al Carrito</button>
-                            </Link>
-                        </>
-                        :
-                        <ItemCount stock={10} initial={1} onAdd={onAdd} />
-                }
+
+        <div class="card" >
+            <div class="row g-0">
+                <div class="col-md-6">
+                    <img src={item.pictureUrl} className="img-fluid" alt="..." />
+                </div>
+                <div class="col-md-6">
+                    <div class="card-body">
+                        <h2 className="card-title">{item.title}</h2>
+                        <p className="card-text">{item.description}</p>
+                        <h3>$ {item.price}</h3>
+                        <p>Stock: {item.stock}</p>
+                        {item.stock === 0 ?
+                            <>
+                                <h2 className="d-flex justify-content-center align-middle">Sin Stock</h2>
+                                <CartItemDetailButtons />
+                            </>
+                            :
+                            quantity ?
+                                <CartItemDetailButtons />
+                                :
+                                <ItemCount stock={item.stock} initial={1} onAdd={onAdd} />
+                        }
+                    </div>
+                </div>
             </div>
         </div>
+
     )
 }
 

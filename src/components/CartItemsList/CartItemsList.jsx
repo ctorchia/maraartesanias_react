@@ -1,7 +1,6 @@
 import { useCartContext } from "../../contexts/cartContext"
 import { Button } from 'react-bootstrap'
 
-
 const CartItemsList = () => {
 
     const { cart, removeItem } = useCartContext()
