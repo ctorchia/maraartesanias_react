@@ -7,7 +7,7 @@ const CartSummary = () => {
 
     return (
         <div className="summary">
-            <h3>Resumen</h3>
+            <h3>Resumen:</h3>
             <div className="summary-item"><span className="text">Precio Total:</span><span className="price">$ {totalPrice()}</span></div>
             <Button onClick={clear} variant="danger">Vaciar Carrito</Button>
         </div>
